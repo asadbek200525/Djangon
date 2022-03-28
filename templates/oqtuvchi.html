@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Oqtuvchi qoshish oynasiga hush kelibsiz</h1>
+
+<form action="{% url 'ism' %}" method="POST">
+    {% csrf_token %}
+    <label>ISM</label>
+    <input type="text" name="ism" placeholder="ISMNI KIRITING"><br><br>
+    <label>FAMILYA</label>
+    <input type="text" name="fam" placeholder="FAMILYANI KIRITING"><br><br>
+    <label>YOSH</label>
+    <input type="number" name="yosh" placeholder="YOSHINGIZNI KIRITING"><br><br>
+    <label>Brithrday</label>
+    <input type="date" name="kun"> <br><br>
+    <label>Fan</label>
+    <select name="fan">
+        {% for fan in fanlar %}
+        <option value="{{fan.id}}">{{fan.nomi}}</option>
+        {% endfor %}
+    </select><br><br>
+    <button type="submit">Saqlash</button>
+
+
+</form>
+</body>
+</html>
